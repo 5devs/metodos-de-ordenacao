@@ -29,7 +29,7 @@
       <ul class="integrantes">
         <li>Erik Zerbinatti</li>
         <li>Guilherme Ventura</li>
-        <li>Richard Nasicmento</li>
+        <li>Richard Nascimento</li>
       </ul>
     </div>
 
@@ -44,7 +44,7 @@
     <div id="selection-sort" class="step sort-title" data-y="1300">
       <h2>Selection Sort</h2>
       <img src="content/img/selection-sort/demo.gif" alt="Selection sort demo">
-      <p>Seleciona um elemento e o compara com os demais, partindo da direita para a esquerda,
+      <p>Seleciona um elemento e o compara com os demais, partindo da esquerda para a direita,
         trocando as posições quando necessário.</p>
     </div>
 
@@ -182,7 +182,9 @@
     <div id="bubble-sort" class="step sort-title" data-y="2300">
       <h2>Bubble Sort</h2>
       <img src="content/img/bubble-sort/demo.gif" alt="Bubble sort demo">
-      <p>Compara dois a dois até o fim.</p>
+      <p>Compara os itens em pares, da esquerda para a direita, trocando-os
+        quando necessário. Repete o movimento até que a coleção esteja
+        corretamente ordenada.</p>
     </div>
 
     <div id="bubble-sort-array-1" class="step array-overlay" data-y="2500">
@@ -195,7 +197,12 @@
     <div id="quicksort" class="step sort-title" data-y="3300">
       <h2>Quicksort</h2>
       <img src="content/img/quicksort/demo.gif" alt="Quicksort demo">
-      <p>It's quick.</p>
+      <p>Utilizando um elemento como guia (chamado de <strong>pivô</strong>),
+        os itens restantes são separados em dois grupos, os menores e os maiores
+        que o pivô; os valores à <strong>esquerda</strong> e à
+        <strong>direita</strong>, respectivamente.</p>
+        <p>Desses dois vetores criados, a lógica é aplicada repetidamente, até
+          que os itens encontrem-se ordenados.</p>
     </div>
 
     <div id="quicksort-array-1" class="step array-overlay" data-y="3500">
@@ -208,7 +215,11 @@
     <div id="gnome-sort" class="step sort-title" data-y="4300">
       <h2>Gnome Sort</h2>
       <img src="content/img/gnome-sort/demo.gif" alt="Gnome sort demo">
-      <p>Vai da direita pra esquerda e depois volta</p>
+      <p>Baseado no <a href="#bubble-sort">Bubble Sort</a>, também compara os
+        elementos vizinhos da esquerda para a direita. Quando um item deve ser
+        trocado, o algoritmo compara da direita para a esquerda para encontrar
+        a posição correta do elemento sendo reposicionado.</p>
+      <p>Esse método evita que o algoritmo percorra elementos já ordenados.</p>
     </div>
 
     <div id="gnome-sort-array-1" class="step array-overlay" data-y="4500">
@@ -317,7 +328,13 @@
     <div id="comb-sort" class="step sort-title" data-y="5300">
       <h2>Comb Sort</h2>
       <img src="content/img/comb-sort/demo.gif" alt="Comb sort demo">
-      <p>Vai da direita pra esquerda com um gap (sempre calculado)</p>
+      <p>Também baseado no <a href="#bubble-sort">Bubble Sort</a>, o principal
+        intuito desse algoritmo é eliminar os <em>elementos tartaruga</em>
+        mais rapidamente, utilizando um <i>gap</i> maior para cada iteração.</p>
+      <p>A ideia de utilizar um <i>gap</i> maior que 1 é parecida com a do
+        <a href="http://en.wikipedia.org/wiki/Shellsort">Shell Sort</a>, mas o
+        mesmo é uma modificação do <a href="http://en.wikipedia.org/wiki/Insertion_sort">Insertion Sort</a>,
+        não do Bubble Sort.</p>
     </div>
 
     <div id="comb-sort-array-1" class="step array-overlay" data-y="5500">
@@ -434,7 +451,11 @@
     <div id="cocktail-sort" class="step sort-title" data-y="6300">
       <h2>Cocktail Sort</h2>
       <img src="content/img/cocktail-sort/demo.gif" alt="Cocktail sort demo">
-      <p>We can drink it.</p>
+      <p>Também visando diminuir os problemas dos <em>elementos tartaruga</em> no
+        <a href="#bubble-sort">Bubble Sort</a>, o Cocktail Sort (também conhecido
+        como <em>Bubble Sort Bidirecional</em>) compara os elementos em pares, da esquerda
+        para a direita, e ao chegar no fim volta comparando os elementos
+        da direita para a esquerda, invertendo a comparação.</p>
     </div>
 
     <div id="cocktail-sort-array-1" class="step array-overlay" data-y="6500">

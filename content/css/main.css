@@ -57,44 +57,74 @@ nav a {
   cursor: pointer;
 }
 
+.step a {
+  transition: border .1s linear;
+
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: transparent solid 5px;
+}
+
+.step a:focus,
+.step a:hover {
+  border-bottom-color: #999;
+}
+
 .step.sort-title {
   min-width: 1000px;
+  height: 0;
 }
 
-.step.sort-title h2 {
-  transition: font-size .3s linear, margin .3s linear;
+  .step.sort-title h2 {
+    transition: font-size .3s linear, margin .3s linear;
 
-  font-size: 2em;
-  margin-top: 2em;
-  margin-bottom: 0;
+    font-size: 2em;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .step.sort-title img,
+  .step.sort-title p {
+    transition: opacity .3s linear;
+    opacity: 0;
+  }
+
+  .step.sort-title img {
+    float: right;
+    margin-left: 1em;
+    position: relative;
+
+    padding: .5em 0 .5em 1em;
+    border: 5px transparent solid;
+    border-left: 5px black solid;
+
+    width: 300px;
+    height: auto;
+  }
+
+  .step.sort-title p {
+    text-align: justify;
+  }
+
+.step.sort-title.past h2 {
+  position: absolute;
+  bottom: 1em;
 }
 
-.step.sort-title img,
-.step.sort-title p {
-  transition: opacity .3s linear;
-  opacity: 0;
+.step.sort-title.active {
+  height: auto;
 }
 
-.step.sort-title img {
-  float: right;
-  margin-left: 2em;
-  position: relative;
-  max-height: 200px;
+  .step.sort-title.active h2 {
+    position: static;
+    font-size: 3rem;
+  }
 
-  padding-left: 2em;
-  border: 5px transparent solid;
-  border-left: 5px black solid;
-}
-
-.step.sort-title.active h2 {
-  font-size: 3rem;
-  margin-top: 0;
-}
-
-.step.sort-title.active img,
-.step.sort-title.active p {
-  opacity: 1;
-}
+  .step.sort-title.active img,
+  .step.sort-title.active p {
+    opacity: 1;
+  }
 
 .step:not(.active) {
   /*opacity: 0.4;*/
