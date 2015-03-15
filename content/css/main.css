@@ -8,6 +8,41 @@ html {
   cursor: default;
 }
 
+nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  padding: 10px;
+  transition: opacity .3s linear;
+
+  opacity: 0.1;
+  font-size: .5em;
+  text-align: right;
+}
+
+nav:hover {
+  opacity: 1;
+}
+
+nav h2 {
+  margin: 0;
+  font-size: .6rem;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+}
+
 .step {
   min-width: 700px;
   position:relative;

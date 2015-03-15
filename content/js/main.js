@@ -4,9 +4,13 @@
     var swappedItems = targetStep.find('.array .swapped');
 
     if (targetStep.hasClass('auto')) {
-      var delay = !!swappedItems.length ? 3000 : 1000;
+      var delay = !!swappedItems.length ? 2000 : 1000;
       setTimeout(function() {
-        impress().next();
+        var activeStep = $('.step.active')[0];
+        // só muda sozinho se o step que iniciou o timeout
+        // ainda estiver ativo
+        if (ev.target == activeStep)
+          impress().next();
       }, delay);
     }
 
