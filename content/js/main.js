@@ -1,11 +1,17 @@
 ;$(function() {
-
   $('#impress').on('impress:stepenter', function(ev) {
-    var targetStep = ev.target;
-    var swappedItems = $(targetStep).find('.array .swapped');
+    var targetStep = $(ev.target);
+    var swappedItems = targetStep.find('.array .swapped');
 
-    // if (swappedItems.length)
-    //   swapItems(swappedItems[0], swappedItems[1]);
+    if (targetStep.hasClass('auto')) {
+      var delay = !!swappedItems.length ? 3000 : 1000;
+      setTimeout(function() {
+        impress().next();
+      }, delay);
+    }
+
+    if (swappedItems.length)
+      swapItems(swappedItems[0], swappedItems[1]);
   });
 
   function swapItems(item1, item2) {
@@ -30,23 +36,28 @@
       // soma o tamanho de todos eles
       .reduce(function(pValue, cValue) { return pValue + cValue; }, 0);
 
+    var items1And2 = $(item1).add(item2);
+    // colocar itens acima dos outros enquanto se animam
+    items1And2.css('z-index', 2);
+
+    // pixels necessarios para chegar ao meio dos itens a serem trocados
+    var halfWayWidth = (item1.outerWidth(true) + gap) / 2;
     item1.animate({
-      top: item1.outerHeight() + animationMargin
+      top: item1.outerHeight(true) + animationMargin,
+      left: halfWayWidth
     }, delay)
     .animate({
-      left: item1.outerWidth(true) + gap
-    }, delay)
-    .animate({
+      left: halfWayWidth * 2,
       top: 0
     }, delay);
 
+    var halfWayWidth = (item2.outerWidth(true) + gap) / 2;
     item2.animate({
-      bottom: item2.outerHeight() + animationMargin
+      bottom: item2.outerHeight(true) + animationMargin,
+      right: halfWayWidth
     }, delay)
     .animate({
-      right: item2.outerWidth(true) + gap
-    }, delay)
-    .animate({
+      right: halfWayWidth * 2,
       bottom: 0
     }, delay, function onAnimationComplete() {
       setTimeout(function(){
@@ -54,7 +65,14 @@
         item1.text(item2.text());
         item2.text(aux);
 
-        $(item1).add(item2).css({ top: 0, bottom: 0, left: 0, right: 0 });
+        // reseta tudo
+        items1And2.css({
+          top: 0,
+          bottom: 0,
+          left: 0,
+          right: 0,
+          'z-index': 0
+        });
 
         array.addClass('ordered');
       }, delay / 4);
@@ -83,7 +101,7 @@
 
           return li.text(item);
         });
-      
+
       $el.append(items);
     });
   }

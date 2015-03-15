@@ -4,58 +4,118 @@
 
 html {
   font-family: Calibri, sans-serif;
+  font-size: 35px;
+  cursor: default;
 }
 
-#impress .step{
-    width: 1000px;
-    position:relative;
-    margin:0 auto;
+.step {
+  min-width: 700px;
+  position:relative;
+  margin:0 auto;
 
-    -moz-transition:1s opacity;
-    -webkit-transition:1s opacity;
-    transition:1s opacity;
+  -moz-transition:1s opacity;
+  -webkit-transition:1s opacity;
+  transition:1s opacity;
 }
 
-#impress .step.sort-title {
-  transition: font-size .3s linear;
+.step:not(.active) {
+  cursor: pointer;
+}
+
+.step.sort-title {
+  min-width: 1000px;
+}
+
+.step.sort-title h2 {
+  transition: font-size .3s linear, margin .3s linear;
+
   font-size: 2em;
+  margin-top: 2em;
+  margin-bottom: 0;
 }
 
-#impress .step.sort-title.active {
-  font-size: 5em;
-}
-
-#impress .step:not(.active) {
-  /*opacity: 0.4;*/
-}
-
-#impress .step.array-overlay:not(.active) {
+.step.sort-title img,
+.step.sort-title p {
+  transition: opacity .3s linear;
   opacity: 0;
 }
 
-#impress .step.array-overlay {
+.step.sort-title img {
+  float: right;
+  margin-left: 2em;
+  position: relative;
+  max-height: 200px;
+
+  padding-left: 2em;
+  border: 5px transparent solid;
+  border-left: 5px black solid;
+}
+
+.step.sort-title.active h2 {
+  font-size: 3rem;
+  margin-top: 0;
+}
+
+.step.sort-title.active img,
+.step.sort-title.active p {
+  opacity: 1;
+}
+
+.step:not(.active) {
+  /*opacity: 0.4;*/
+}
+
+.step.array-overlay:not(.active) {
+  opacity: 0;
+}
+
+.step.array-overlay {
   text-align: center;
+}
+
+.step.array-overlay.auto::after {
+  content: 'Auto';
+
+  position: fixed;
+  left: 100%;
+  top: 0;
+
+  width: 1em;
+  padding: 3px 5px;
+
+  background: #282;
+  opacity: .5;
+  color: #fff;
+
+  text-align: center;
+  text-transform: uppercase;
+  font-size: .5em;
+  -ms-word-break: break-word;
+  word-break: break-word;
+  font-weight: bold;
 }
 
 .array {
   /* set counter to start *after* -1 */
   counter-reset: li -1;
 
-  font-family: Consolas;
   padding: 0;
+  margin: 0;
+
   cursor: default;
+  font-family: Consolas;
 }
 
 .array li {
   display: inline-block;
-  padding: 20px;
-  margin: 5px;
+  padding: .3em;
+  margin: 0 5px 45px;
   border: 3px solid black;
   font-size: 2em;
   font-weight: bold;
   counter-increment: li;
   position: relative;
-  width: 10%;
+  max-width: 15%;
   text-align: center;
 
   transition: background-color .3s linear, border-color .3s linear, color .3s linear;
@@ -69,8 +129,9 @@ html {
   margin-left: -.2em;
   margin-top: .2em;
 
-  font-size: 0.7em;
-  font-weight: normal;
+  font-family: 'Century Gothic';
+  font-size: 0.5em;
+  font-weight: lighter;
 }
 
 .array li.highlighted {
@@ -93,10 +154,33 @@ html {
 }
 
 
+/* ESTILO POR STEP */
+#intro {
+  width: 300px;
+  text-align: center;
+}
+
+#intro h2 {
+  margin-bottom: .5em;
+}
+
+#intro h3 {
+  margin-top: 0;
+}
+
+#intro .integrantes {
+  margin-top: 3em;
+  padding: 0;
+}
+
+#intro .integrantes li {
+  list-style-type: none;
+  text-align: right;
+}
+
 /* REMOVER */
-img {
+/*img {
   position: absolute;
   bottom: 60%;
   left: 271px;
-  /* width: 110px; */
-}
+}*/
