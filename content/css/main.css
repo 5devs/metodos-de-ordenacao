@@ -9,16 +9,14 @@ html {
 }
 
 nav {
-  position: fixed;
-  top: 0;
-  right: 0;
-
   padding: 10px;
   transition: opacity .3s linear;
 
   opacity: 0.1;
-  font-size: .5em;
-  text-align: right;
+  z-index: 1;
+  background: rgba(255, 255, 255, .5);
+
+  border-radius: 3px;
 }
 
 nav:hover {
@@ -37,11 +35,66 @@ nav ul {
 
 nav ul li {
   list-style: none;
+  transition: background-color .3s linear;
 }
 
 nav a {
   text-decoration: none;
+  color: #00f;
+
+  display: block;
+  width: 100%;
+  padding: 0 .5em;
 }
+
+nav#sort-algorithm-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  font-size: .5em;
+  text-align: right;
+}
+
+nav#step-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  padding: 0;
+}
+
+  nav#step-nav ul {
+    text-align: center;
+    height: 1em;
+  }
+
+  nav#step-nav li {
+    position: absolute;
+    line-height: 1em;
+    width: 1em;
+    text-align: center;
+    background: #22f;
+  }
+
+    nav#step-nav li a {
+      padding: 0;
+
+      color: #fff;
+    }
+
+  nav#step-nav li:hover {
+    background: #00f;
+  }
+
+  nav#step-nav li.prev {
+    left: 0;
+  }
+
+  nav#step-nav li.next {
+    right: 0;
+  }
 
 .step {
   min-width: 700px;
@@ -55,7 +108,13 @@ nav a {
 
 .step:not(.active) {
   cursor: pointer;
+  z-index: -1;
 }
+
+  .step:not(.active) h2 {
+    position: absolute;
+    bottom: 1em;
+  }
 
 .step a {
   transition: border .1s linear;
@@ -106,11 +165,6 @@ nav a {
   .step.sort-title p {
     text-align: justify;
   }
-
-.step.sort-title.past h2 {
-  position: absolute;
-  bottom: 1em;
-}
 
 .step.sort-title.active {
   height: auto;
@@ -186,6 +240,10 @@ nav a {
   transition: background-color .3s linear, border-color .3s linear, color .3s linear;
 }
 
+.array.swap-done li {
+  transition: background-color 0 linear, border-color 0 linear, color 0 linear;
+}
+
 .array li::after {
   content: counter(li);
   position: absolute;
@@ -199,23 +257,58 @@ nav a {
   font-weight: lighter;
 }
 
+.array li.pivot {
+  border-color: #fa2;
+  color: #fa2;
+  background-color: #ffa;
+}
+
 .array li.highlighted {
   border-color: #22f;
   color: #22f;
   background-color: #eef;
 }
 
-.array li.swapped {
+.array li.highlighted.pivot {
+  background-color: #aaf;
+}
+
+.array li.swapped,
+.array li.moved {
   border-color: #f22;
   color: #f22;
   background-color: #fee;
 }
 
-.array.ordered li.swapped,
-.array.sorted li {
+.array li.swapped.pivot,
+.array li.moved.pivot {
+  background-color: #faa;
+}
+
+.array li.blurred {
+  border-color: #aaa;
+  color: #aaa;
+  background-color: #eee;
+}
+
+.array li.blurred.ordered {
+  opacity: .5;
+}
+
+.array.swap-done li.swapped,
+.array.move-done li.moved,
+.array.ordered li,
+.array li.ordered {
   border-color: #282;
   color: #282;
   background-color: #efe;
+}
+
+.array.swap-done li.swapped.pivot,
+.array.move-done li.moved.pivot,
+.array.ordered li.pivot,
+.array li.ordered.pivot {
+  background-color: #afa;
 }
 
 
