@@ -1,0 +1,32 @@
+{
+  "name": "MetodosDeOrdenacao",
+  "version": "0.0.0",
+  "authors": [
+    "Guilherme Ventura <guilhermeventura2@gmail.com>"
+  ],
+  "description": "Apresentação sobre métodos de ordenação",
+  "main": "index.html",
+  "keywords": [
+    "quicksort",
+    "bubblesort",
+    "sorting",
+    "algorithms",
+    "ordenação",
+    "gnomesort",
+    "selectionsort",
+    "combsort"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "impress.js": "~0.5.3",
+    "jquery": "~2.1.3"
+  }
+}
