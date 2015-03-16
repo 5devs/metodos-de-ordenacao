@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1426479673 source:c:\git\5devs\metodos-de-ordenacao\benchmark\project\metodosdeordenacao\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1426478939 source:c:\git\5devs\metodos-de-ordenacao\benchmark\project\metodosdeordenacao\selection_sort.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+
