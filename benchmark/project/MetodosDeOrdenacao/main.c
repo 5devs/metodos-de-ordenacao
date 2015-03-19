@@ -9,20 +9,15 @@ double benchmark_selection_sort(int vetor[], int tam);
 int main()
 {
     int vetor[TAMANHO], i;
-    int* vetorNaoOrdenado;
-    for(i=0; i<TAMANHO; i++){
-        vetor[i] = rand() % 100000;
-    }
 
-    vetorNaoOrdenado = &vetor;
+    for(i=0; i<TAMANHO; i++)
+        vetor[i] = rand() % 100000;
 
     printf("/*** BENCHMARK METODOS DE ORDENACAO ***\\\n");
     printf("Testando com vetor com %d itens.\n\n", TAMANHO);
 
     printf("SELECTION SORT\n");
     benchmark_selection_sort(vetor, TAMANHO);
-    for(i = 0; i < 5; i++)
-        printf("\n%d", *(vetorNaoOrdenado + i));
 
     //for(i=0; i<TAMANHO; i++)
         //printf("%d, ", vetor[i]);
