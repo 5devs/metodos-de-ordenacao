@@ -10,8 +10,9 @@ double benchmark_bubble_sort(int vetor[], int tam);
 int main()
 {
     int vetor[TAMANHO], i;
+
     for(i=0; i<TAMANHO; i++)
-        vetor[i] = rand();
+        vetor[i] = rand() % 100000;
 
     printf("/*** BENCHMARK METODOS DE ORDENACAO ***\\\n");
     printf("Testando com vetor com %d itens.\n\n", TAMANHO);
@@ -23,7 +24,7 @@ int main()
     benchmark_bubble_sort(vetor, TAMANHO);
 
     //for(i=0; i<TAMANHO; i++)
-        //printf("%d, ", i, vetor[i]);
+        //printf("%d, ", vetor[i]);
 
     getch();
     return 0;
