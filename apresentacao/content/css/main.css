@@ -258,6 +258,8 @@ nav#step-nav {
 }
 
 .array li.pivot {
+  top: -45px;
+
   border-color: #fa2;
   color: #fa2;
   background-color: #ffa;
