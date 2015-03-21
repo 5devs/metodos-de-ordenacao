@@ -5,7 +5,9 @@
     'o': 'ordered',
     'p': 'pivot',
     'b': 'blurred',
-    'm': 'moved'
+    'm': 'moved',
+    'k': 'marked',
+    'w': 'wrong'
   };
   var defaultAnimationDelay = 500;
 
