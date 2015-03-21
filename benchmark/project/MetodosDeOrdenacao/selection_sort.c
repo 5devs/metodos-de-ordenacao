@@ -22,6 +22,7 @@ int* selection_sort(int vetor[], int tamanho)
             vetor[i] = vetor[min];
             vetor[min] = aux;
         }
+
     }
     return vetor;
 }

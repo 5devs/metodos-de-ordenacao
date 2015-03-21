@@ -1,20 +1,25 @@
 # depslib dependency file v1.0
-1426519106 source:c:\git\5devs\metodos-de-ordenacao\benchmark\project\metodosdeordenacao\main.c
+1426951051 source:c:\git\5devs\metodos-de-ordenacao\benchmark\project\metodosdeordenacao\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 
-1426541205 source:c:\git\5devs\metodos-de-ordenacao\benchmark\project\metodosdeordenacao\selection_sort.c
+1426946315 source:c:\git\5devs\metodos-de-ordenacao\benchmark\project\metodosdeordenacao\selection_sort.c
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>
 
-1426542718 source:c:\git\5devs\metodos-de-ordenacao\benchmark\project\metodosdeordenacao\bubble_sort.c
+1426946314 source:c:\git\5devs\metodos-de-ordenacao\benchmark\project\metodosdeordenacao\bubble_sort.c
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>
 
 1426542717 source:c:\git\5devs\metodos-de-ordenacao\benchmark\project\metodosdeordenacao\mdc.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+
+1426951088 source:c:\git\5devs\metodos-de-ordenacao\benchmark\project\metodosdeordenacao\quick_sort.c
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>

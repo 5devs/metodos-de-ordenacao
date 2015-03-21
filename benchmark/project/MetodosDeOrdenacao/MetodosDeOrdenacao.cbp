@@ -31,7 +31,16 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="bubble_sort.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="gnome_sort.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="quick_sort.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="selection_sort.c">
