@@ -53,8 +53,9 @@
     <div id="selection-sort" class="step sort-title" data-y="1300">
       <h2>Selection Sort</h2>
       <img src="content/img/selection-sort/demo.gif" alt="Selection sort demo">
-      <p>Seleciona um elemento e o compara com os demais, partindo da esquerda para a direita,
-        trocando as posições quando necessário.</p>
+      <p>Seleciona a primeira posição do vetor e compara o elemento com os demais, partindo da esquerda para a direita,
+        trocando-os quando necessário. Ao término das comparações, seleciona a proxima posição e compara o elemento com 
+        os posteriores. Essa lógica é repetida até que a ultima posição esteja ordenada.</p>
     </div>
 
     <div id="selection-sort-array-1" class="step array-overlay" data-y="1500">
@@ -191,9 +192,8 @@
     <div id="bubble-sort" class="step sort-title" data-y="2300">
       <h2>Bubble Sort</h2>
       <img src="content/img/bubble-sort/demo.gif" alt="Bubble sort demo">
-      <p>Compara os itens em pares, da esquerda para a direita, trocando-os
-        quando necessário. Repete o movimento até que a coleção esteja
-        corretamente ordenada.</p>
+      <p>Compara o elemento da primeira posição do vetor com o elemento da posição seguinte, trocando-os
+        se necessário, e avançando uma posição, até o fim. Essa lógica é repetida até que não haja troca de posições.</p>
     </div>
 
     <div id="bubble-sort-array-1" class="step array-overlay" data-y="2500">
@@ -314,16 +314,13 @@
 
 
 
-    <!-- BUBBLE SORT -->
+    <!-- QUICK SORT -->
     <div id="quicksort" class="step sort-title" data-y="3300">
       <h2>Quicksort</h2>
       <img src="content/img/quicksort/demo.gif" alt="Quicksort demo">
-      <p>Utilizando um elemento como guia (chamado de <strong>pivô</strong>),
-        os itens restantes são separados em dois grupos, os menores e os maiores
-        que o pivô; os valores à <strong>esquerda</strong> e à
-        <strong>direita</strong>, respectivamente.</p>
-        <p>Desses dois vetores criados, a lógica é aplicada repetidamente, até
-          que os itens encontrem-se ordenados.</p>
+      <p>Utilizando um elemento como guia (denominado <strong>pivô</strong>), separamos os elementos
+        em dois vetores, os menores e os maiores que o pivô. Desses dois vetores criados, a lógica é aplicada repetidamente, até
+          que os itens estejam ordenados.
     </div>
 
     <div id="quicksort-array-1" class="step array-overlay" data-y="3500">
@@ -503,9 +500,9 @@
       <h2>Gnome Sort</h2>
       <img src="content/img/gnome-sort/demo.gif" alt="Gnome sort demo">
       <p>Baseado no <a href="#bubble-sort">Bubble Sort</a>, também compara os
-        elementos vizinhos da esquerda para a direita. Quando um item deve ser
-        trocado, o algoritmo compara da direita para a esquerda para encontrar
-        a posição correta do elemento sendo reposicionado.</p>
+        elementos vizinhos da esquerda para a direita. Quando houver troca, o 
+        algoritmo compara o elemento com os anteriores, da direita para a esquerda, 
+        até encontrar sua posição correta.</p>
       <p>Esse método evita que o algoritmo percorra elementos já ordenados.</p>
     </div>
 
@@ -611,264 +608,261 @@
 
 
 
-    <!-- COMB SORT -->
-    <div id="comb-sort" class="step sort-title" data-y="5300">
-      <h2>Comb Sort</h2>
-      <img src="content/img/comb-sort/demo.gif" alt="Comb sort demo">
-      <p>Também baseado no <a href="#bubble-sort">Bubble Sort</a>, o principal
-        intuito desse algoritmo é eliminar os <em>elementos tartaruga</em>
-        mais rapidamente, utilizando um <i>gap</i> maior para cada iteração.</p>
-      <p>A ideia de utilizar um <i>gap</i> maior que 1 é parecida com a do
-        <a href="http://en.wikipedia.org/wiki/Shellsort" target="_BLANK">Shell Sort</a>,
-        mas o mesmo é uma modificação do
-        <a href="http://en.wikipedia.org/wiki/Insertion_sort" target="_BLANK">Insertion Sort</a>,
-        não do Bubble Sort.</p>
-    </div>
-
-    <div id="comb-sort-array-1" class="step array-overlay" data-y="5500">
-      <ul class="array" data-items="4:h, 5, 2, 0, 1, 3, 6:h"></ul>
-    </div>
-
-    <div id="comb-sort-array-2" class="step array-overlay" data-y="5500">
-      <ul class="array" data-items="4:h, 5, 2, 0:h, 1, 3, 6"></ul>
-    </div>
-
-    <div id="comb-sort-array-3" class="step array-overlay" data-y="5500">
-      <ul class="array" data-items="4:s, 5, 2, 0:s, 1, 3, 6"></ul>
-    </div>
-
-    <div id="comb-sort-array-4" class="step array-overlay" data-y="5500">
-      <ul class="array" data-items="0, 5:h, 2, 4, 1:h, 3, 6"></ul>
-    </div>
-
-    <div id="comb-sort-array-5" class="step array-overlay" data-y="5500">
-      <ul class="array" data-items="0, 5:s, 2, 4, 1:s, 3, 6"></ul>
-    </div>
-
-    <div id="comb-sort-array-6" class="step array-overlay" data-y="5500">
-      <ul class="array" data-items="0, 1, 2:h, 4, 5, 3:h, 6"></ul>
-    </div>
-
-    <div id="comb-sort-array-7" class="step array-overlay" data-y="5500">
-      <ul class="array" data-items="0, 1, 2, 4:h, 5, 3, 6:h"></ul>
-    </div>
-
-    <div id="comb-sort-array-8" class="step array-overlay auto" data-y="5500">
-      <ul class="array" data-items="0:h, 1, 2:h, 4, 5, 3, 6"></ul>
-    </div>
-
-    <div id="comb-sort-array-9" class="step array-overlay auto" data-y="5500">
-      <ul class="array" data-items="0, 1:h, 2, 4:h, 5, 3, 6"></ul>
-    </div>
-
-    <div id="comb-sort-array-10" class="step array-overlay auto" data-y="5500">
-      <ul class="array" data-items="0, 1, 2:h, 4, 5:h, 3, 6"></ul>
-    </div>
-
-    <div id="comb-sort-array-11" class="step array-overlay auto" data-y="5500">
-      <ul class="array" data-items="0, 1, 2, 4:h, 5, 3:h, 6"></ul>
-    </div>
-
-    <div id="comb-sort-array-12" class="step array-overlay auto" data-y="5500">
-      <ul class="array" data-items="0, 1, 2, 4:s, 5, 3:s, 6"></ul>
-    </div>
-
-    <div id="comb-sort-array-13" class="step array-overlay auto" data-y="5500">
-      <ul class="array" data-items="0, 1, 2, 3, 5:h, 4, 6:h"></ul>
-    </div>
-
-    <div id="comb-sort-array-14" class="step array-overlay auto" data-y="5500">
-      <ul class="array" data-items="0:h, 1:h, 2, 3, 5, 4, 6"></ul>
-    </div>
-
-    <div id="comb-sort-array-15" class="step array-overlay auto" data-y="5500">
-      <ul class="array" data-items="0, 1:h, 2:h, 3, 5, 4, 6"></ul>
-    </div>
-
-    <div id="comb-sort-array-16" class="step array-overlay auto" data-y="5500">
-      <ul class="array" data-items="0, 1, 2:h, 3:h, 5, 4, 6"></ul>
-    </div>
-
-    <div id="comb-sort-array-17" class="step array-overlay auto" data-y="5500">
-      <ul class="array" data-items="0, 1, 2, 3:h, 5:h, 4, 6"></ul>
-    </div>
-
-    <div id="comb-sort-array-18" class="step array-overlay auto" data-y="5500">
-      <ul class="array" data-items="0, 1, 2, 3, 5:h, 4:h, 6"></ul>
-    </div>
-
-    <div id="comb-sort-array-19" class="step array-overlay auto" data-y="5500">
-      <ul class="array" data-items="0, 1, 2, 3, 5:s, 4:s, 6"></ul>
-    </div>
-
-    <div id="comb-sort-array-20" class="step array-overlay auto" data-y="5500">
-      <ul class="array" data-items="0, 1, 2, 3, 4, 5:h, 6:h"></ul>
-    </div>
-
-    <div id="comb-sort-array-21" class="step array-overlay auto" data-y="5500">
-      <ul class="array" data-items="0:h, 1:h, 2, 3, 4, 5, 6"></ul>
-    </div>
-
-    <div id="comb-sort-array-22" class="step array-overlay auto" data-y="5500">
-      <ul class="array" data-items="0, 1:h, 2:h, 3, 4, 5, 6"></ul>
-    </div>
-
-    <div id="comb-sort-array-23" class="step array-overlay auto" data-y="5500">
-      <ul class="array" data-items="0, 1, 2:h, 3:h, 4, 5, 6"></ul>
-    </div>
-
-    <div id="comb-sort-array-24" class="step array-overlay auto" data-y="5500">
-      <ul class="array" data-items="0, 1, 2, 3:h, 4:h, 5, 6"></ul>
-    </div>
-
-    <div id="comb-sort-array-25" class="step array-overlay auto" data-y="5500">
-      <ul class="array" data-items="0, 1, 2, 3, 4:h, 5:h, 6"></ul>
-    </div>
-
-    <div id="comb-sort-array-26" class="step array-overlay auto" data-y="5500">
-      <ul class="array" data-items="0, 1, 2, 3, 4, 5:h, 6:h"></ul>
-    </div>
-
-    <div id="comb-sort-array-27" class="step array-overlay" data-y="5500">
-      <ul class="array ordered" data-items="0, 1, 2, 3, 4, 5, 6"></ul>
-    </div>
-
-
-
-    <!-- SELECTION SORT -->
-    <div id="cocktail-sort" class="step sort-title" data-y="6300">
+    <!-- COCKTAIL SORT -->
+    <div id="cocktail-sort" class="step sort-title" data-y="5300">
       <h2>Cocktail Sort</h2>
       <img src="content/img/cocktail-sort/demo.gif" alt="Cocktail sort demo">
-      <p>Também visando diminuir os problemas dos <em>elementos tartaruga</em> no
-        <a href="#bubble-sort">Bubble Sort</a>, o Cocktail Sort (também conhecido
-        como <em>Bubble Sort Bidirecional</em>) compara os elementos em pares, da esquerda
-        para a direita, e ao chegar no fim volta comparando os elementos
-        da direita para a esquerda, invertendo a comparação.</p>
+      <p>Também baseado no <a href="#bubble-sort">Bubble Sort</a>, a ideia desse algoritmo (também conhecido
+        como <em>Bubble Sort Bidirecional</em>) é eliminar os <em>elementos tartaruga</em> mais rapidamente. 
+        O Cocktail Sort compara os elementos em pares, da esquerda para a direita, e, ao chegar no final do vetor, volta 
+        comparando os elementos da direita para a esquerda.</p>
     </div>
 
-    <div id="cocktail-sort-array-1" class="step array-overlay" data-y="6500">
+    <div id="cocktail-sort-array-1" class="step array-overlay" data-y="5500">
       <ul class="array" data-items="4:h, 5:h, 2, 0, 1, 3, 6"></ul>
     </div>
 
-    <div id="cocktail-sort-array-2" class="step array-overlay" data-y="6500">
+    <div id="cocktail-sort-array-2" class="step array-overlay" data-y="5500">
       <ul class="array" data-items="4, 5:h, 2:h, 0, 1, 3, 6"></ul>
     </div>
 
-    <div id="cocktail-sort-array-3" class="step array-overlay" data-y="6500">
+    <div id="cocktail-sort-array-3" class="step array-overlay" data-y="5500">
       <ul class="array" data-items="4, 5:s, 2:s, 0, 1, 3, 6"></ul>
     </div>
 
-    <div id="cocktail-sort-array-4" class="step array-overlay" data-y="6500">
+    <div id="cocktail-sort-array-4" class="step array-overlay" data-y="5500">
       <ul class="array" data-items="4, 2, 5:h, 0:h, 1, 3, 6"></ul>
     </div>
 
-    <div id="cocktail-sort-array-5" class="step array-overlay" data-y="6500">
+    <div id="cocktail-sort-array-5" class="step array-overlay" data-y="5500">
       <ul class="array" data-items="4, 2, 5:s, 0:s, 1, 3, 6"></ul>
     </div>
 
-    <div id="cocktail-sort-array-6" class="step array-overlay" data-y="6500">
+    <div id="cocktail-sort-array-6" class="step array-overlay" data-y="5500">
       <ul class="array" data-items="4, 2, 0, 5:h, 1:h, 3, 6"></ul>
     </div>
 
-    <div id="cocktail-sort-array-7" class="step array-overlay" data-y="6500">
+    <div id="cocktail-sort-array-7" class="step array-overlay" data-y="5500">
       <ul class="array" data-items="4, 2, 0, 5:s, 1:s, 3, 6"></ul>
     </div>
 
-    <div id="cocktail-sort-array-8" class="step array-overlay" data-y="6500">
+    <div id="cocktail-sort-array-8" class="step array-overlay" data-y="5500">
       <ul class="array" data-items="4, 2, 0, 1, 5:h, 3:h, 6"></ul>
     </div>
 
-    <div id="cocktail-sort-array-9" class="step array-overlay" data-y="6500">
+    <div id="cocktail-sort-array-9" class="step array-overlay" data-y="5500">
       <ul class="array" data-items="4, 2, 0, 1, 5:s, 3:s, 6"></ul>
     </div>
 
-    <div id="cocktail-sort-array-10" class="step array-overlay" data-y="6500">
+    <div id="cocktail-sort-array-10" class="step array-overlay" data-y="5500">
       <ul class="array" data-items="4, 2, 0, 1, 3, 5:h, 6:h"></ul>
     </div>
 
-    <div id="cocktail-sort-array-11" class="step array-overlay auto" data-y="6500">
+    <div id="cocktail-sort-array-11" class="step array-overlay auto" data-y="5500">
       <ul class="array" data-items="4, 2, 0, 1, 3:h, 5:h, 6:o"></ul>
     </div>
 
-    <div id="cocktail-sort-array-12" class="step array-overlay auto" data-y="6500">
+    <div id="cocktail-sort-array-12" class="step array-overlay auto" data-y="5500">
       <ul class="array" data-items="4, 2, 0, 1:h, 3:h, 5, 6:o"></ul>
     </div>
 
-    <div id="cocktail-sort-array-13" class="step array-overlay auto" data-y="6500">
+    <div id="cocktail-sort-array-13" class="step array-overlay auto" data-y="5500">
       <ul class="array" data-items="4, 2, 0:h, 1:h, 3, 5, 6:o"></ul>
     </div>
 
-    <div id="cocktail-sort-array-14" class="step array-overlay auto" data-y="6500">
+    <div id="cocktail-sort-array-14" class="step array-overlay auto" data-y="5500">
       <ul class="array" data-items="4, 2:h, 0:h, 1, 3, 5, 6:o"></ul>
     </div>
 
-    <div id="cocktail-sort-array-15" class="step array-overlay auto" data-y="6500">
+    <div id="cocktail-sort-array-15" class="step array-overlay auto" data-y="5500">
       <ul class="array" data-items="4, 2:s, 0:s, 1, 3, 5, 6:o"></ul>
     </div>
 
-    <div id="cocktail-sort-array-16" class="step array-overlay auto" data-y="6500">
+    <div id="cocktail-sort-array-16" class="step array-overlay auto" data-y="5500">
       <ul class="array" data-items="4:h, 0:h, 2, 1, 3, 5, 6:o"></ul>
     </div>
 
-    <div id="cocktail-sort-array-17" class="step array-overlay auto" data-y="6500">
+    <div id="cocktail-sort-array-17" class="step array-overlay auto" data-y="5500">
       <ul class="array" data-items="4:s, 0:s, 2, 1, 3, 5, 6:o"></ul>
     </div>
 
-    <div id="cocktail-sort-array-18" class="step array-overlay auto" data-y="6500">
+    <div id="cocktail-sort-array-18" class="step array-overlay auto" data-y="5500">
       <ul class="array" data-items="0:o, 4:h, 2:h, 1, 3, 5, 6:o"></ul>
     </div>
 
-    <div id="cocktail-sort-array-19" class="step array-overlay auto" data-y="6500">
+    <div id="cocktail-sort-array-19" class="step array-overlay auto" data-y="5500">
       <ul class="array" data-items="0:o, 4:s, 2:s, 1, 3, 5, 6:o"></ul>
     </div>
 
-    <div id="cocktail-sort-array-20" class="step array-overlay auto" data-y="6500">
+    <div id="cocktail-sort-array-20" class="step array-overlay auto" data-y="5500">
       <ul class="array" data-items="0:o, 2, 4:h, 1:h, 3, 5, 6:o"></ul>
     </div>
 
-    <div id="cocktail-sort-array-21" class="step array-overlay auto" data-y="6500">
+    <div id="cocktail-sort-array-21" class="step array-overlay auto" data-y="5500">
       <ul class="array" data-items="0:o, 2, 4:s, 1:s, 3, 5, 6:o"></ul>
     </div>
 
-    <div id="cocktail-sort-array-22" class="step array-overlay auto" data-y="6500">
+    <div id="cocktail-sort-array-22" class="step array-overlay auto" data-y="5500">
       <ul class="array" data-items="0:o, 2, 1, 4:h, 3:h, 5, 6:o"></ul>
     </div>
 
-    <div id="cocktail-sort-array-23" class="step array-overlay auto" data-y="6500">
+    <div id="cocktail-sort-array-23" class="step array-overlay auto" data-y="5500">
       <ul class="array" data-items="0:o, 2, 1, 4:s, 3:s, 5, 6:o"></ul>
     </div>
 
-    <div id="cocktail-sort-array-24" class="step array-overlay auto" data-y="6500">
+    <div id="cocktail-sort-array-24" class="step array-overlay auto" data-y="5500">
       <ul class="array" data-items="0:o, 2, 1, 3, 4:h, 5:h, 6:o"></ul>
     </div>
 
-    <div id="cocktail-sort-array-25" class="step array-overlay auto" data-y="6500">
+    <div id="cocktail-sort-array-25" class="step array-overlay auto" data-y="5500">
       <ul class="array" data-items="0:o, 2, 1, 3:h, 4:h, 5:o, 6:o"></ul>
     </div>
 
-    <div id="cocktail-sort-array-26" class="step array-overlay auto" data-y="6500">
+    <div id="cocktail-sort-array-26" class="step array-overlay auto" data-y="5500">
       <ul class="array" data-items="0:o, 2, 1:h, 3:h, 4, 5:o, 6:o"></ul>
     </div>
 
-    <div id="cocktail-sort-array-27" class="step array-overlay auto" data-y="6500">
+    <div id="cocktail-sort-array-27" class="step array-overlay auto" data-y="5500">
       <ul class="array" data-items="0:o, 2:h, 1:h, 3, 4, 5:o, 6:o"></ul>
     </div>
 
-    <div id="cocktail-sort-array-28" class="step array-overlay auto" data-y="6500">
+    <div id="cocktail-sort-array-28" class="step array-overlay auto" data-y="5500">
       <ul class="array" data-items="0:o, 2:s, 1:s, 3, 4, 5:o, 6:o"></ul>
     </div>
 
-    <div id="cocktail-sort-array-29" class="step array-overlay auto" data-y="6500">
+    <div id="cocktail-sort-array-29" class="step array-overlay auto" data-y="5500">
       <ul class="array" data-items="0:o, 1:o, 2:h, 3:h, 4, 5:o, 6:o"></ul>
     </div>
 
-    <div id="cocktail-sort-array-30" class="step array-overlay auto" data-y="6500">
+    <div id="cocktail-sort-array-30" class="step array-overlay auto" data-y="5500">
       <ul class="array" data-items="0:o, 1:o, 2, 3:h, 4:h, 5:o, 6:o"></ul>
     </div>
 
-    <div id="cocktail-sort-array-31" class="step array-overlay" data-y="6500">
+    <div id="cocktail-sort-array-31" class="step array-overlay" data-y="5500">
       <ul class="array ordered" data-items="0, 1, 2, 3, 4, 5, 6"></ul>
     </div>
+
+
+    <!-- COMB SORT -->
+    <div id="comb-sort" class="step sort-title" data-y="6300">
+      <h2>Comb Sort</h2>
+      <img src="content/img/comb-sort/demo.gif" alt="Comb sort demo">
+      <p>Também visando diminuir os problemas dos <em>elementos tartaruga</em> no
+        <a href="#bubble-sort">Bubble Sort</a>, o Comb Sort utiliza um <i>gap</i> maior para cada iteração,  
+        consequentemente  melhorando a performance.</p>
+    </div>
+
+    <div id="comb-sort-array-1" class="step array-overlay" data-y="6500">
+      <ul class="array" data-items="4:h, 5, 2, 0, 1, 3, 6:h"></ul>
+    </div>
+
+    <div id="comb-sort-array-2" class="step array-overlay" data-y="6500">
+      <ul class="array" data-items="4:h, 5, 2, 0:h, 1, 3, 6"></ul>
+    </div>
+
+    <div id="comb-sort-array-3" class="step array-overlay" data-y="6500">
+      <ul class="array" data-items="4:s, 5, 2, 0:s, 1, 3, 6"></ul>
+    </div>
+
+    <div id="comb-sort-array-4" class="step array-overlay" data-y="6500">
+      <ul class="array" data-items="0, 5:h, 2, 4, 1:h, 3, 6"></ul>
+    </div>
+
+    <div id="comb-sort-array-5" class="step array-overlay" data-y="6500">
+      <ul class="array" data-items="0, 5:s, 2, 4, 1:s, 3, 6"></ul>
+    </div>
+
+    <div id="comb-sort-array-6" class="step array-overlay" data-y="6500">
+      <ul class="array" data-items="0, 1, 2:h, 4, 5, 3:h, 6"></ul>
+    </div>
+
+    <div id="comb-sort-array-7" class="step array-overlay" data-y="6500">
+      <ul class="array" data-items="0, 1, 2, 4:h, 5, 3, 6:h"></ul>
+    </div>
+
+    <div id="comb-sort-array-8" class="step array-overlay auto" data-y="6500">
+      <ul class="array" data-items="0:h, 1, 2:h, 4, 5, 3, 6"></ul>
+    </div>
+
+    <div id="comb-sort-array-9" class="step array-overlay auto" data-y="6500">
+      <ul class="array" data-items="0, 1:h, 2, 4:h, 5, 3, 6"></ul>
+    </div>
+
+    <div id="comb-sort-array-10" class="step array-overlay auto" data-y="6500">
+      <ul class="array" data-items="0, 1, 2:h, 4, 5:h, 3, 6"></ul>
+    </div>
+
+    <div id="comb-sort-array-11" class="step array-overlay auto" data-y="6500">
+      <ul class="array" data-items="0, 1, 2, 4:h, 5, 3:h, 6"></ul>
+    </div>
+
+    <div id="comb-sort-array-12" class="step array-overlay auto" data-y="6500">
+      <ul class="array" data-items="0, 1, 2, 4:s, 5, 3:s, 6"></ul>
+    </div>
+
+    <div id="comb-sort-array-13" class="step array-overlay auto" data-y="6500">
+      <ul class="array" data-items="0, 1, 2, 3, 5:h, 4, 6:h"></ul>
+    </div>
+
+    <div id="comb-sort-array-14" class="step array-overlay auto" data-y="6500">
+      <ul class="array" data-items="0:h, 1:h, 2, 3, 5, 4, 6"></ul>
+    </div>
+
+    <div id="comb-sort-array-15" class="step array-overlay auto" data-y="6500">
+      <ul class="array" data-items="0, 1:h, 2:h, 3, 5, 4, 6"></ul>
+    </div>
+
+    <div id="comb-sort-array-16" class="step array-overlay auto" data-y="6500">
+      <ul class="array" data-items="0, 1, 2:h, 3:h, 5, 4, 6"></ul>
+    </div>
+
+    <div id="comb-sort-array-17" class="step array-overlay auto" data-y="6500">
+      <ul class="array" data-items="0, 1, 2, 3:h, 5:h, 4, 6"></ul>
+    </div>
+
+    <div id="comb-sort-array-18" class="step array-overlay auto" data-y="6500">
+      <ul class="array" data-items="0, 1, 2, 3, 5:h, 4:h, 6"></ul>
+    </div>
+
+    <div id="comb-sort-array-19" class="step array-overlay auto" data-y="6500">
+      <ul class="array" data-items="0, 1, 2, 3, 5:s, 4:s, 6"></ul>
+    </div>
+
+    <div id="comb-sort-array-20" class="step array-overlay auto" data-y="6500">
+      <ul class="array" data-items="0, 1, 2, 3, 4, 5:h, 6:h"></ul>
+    </div>
+
+    <div id="comb-sort-array-21" class="step array-overlay auto" data-y="6500">
+      <ul class="array" data-items="0:h, 1:h, 2, 3, 4, 5, 6"></ul>
+    </div>
+
+    <div id="comb-sort-array-22" class="step array-overlay auto" data-y="6500">
+      <ul class="array" data-items="0, 1:h, 2:h, 3, 4, 5, 6"></ul>
+    </div>
+
+    <div id="comb-sort-array-23" class="step array-overlay auto" data-y="6500">
+      <ul class="array" data-items="0, 1, 2:h, 3:h, 4, 5, 6"></ul>
+    </div>
+
+    <div id="comb-sort-array-24" class="step array-overlay auto" data-y="6500">
+      <ul class="array" data-items="0, 1, 2, 3:h, 4:h, 5, 6"></ul>
+    </div>
+
+    <div id="comb-sort-array-25" class="step array-overlay auto" data-y="6500">
+      <ul class="array" data-items="0, 1, 2, 3, 4:h, 5:h, 6"></ul>
+    </div>
+
+    <div id="comb-sort-array-26" class="step array-overlay auto" data-y="6500">
+      <ul class="array" data-items="0, 1, 2, 3, 4, 5:h, 6:h"></ul>
+    </div>
+
+    <div id="comb-sort-array-27" class="step array-overlay" data-y="6500">
+      <ul class="array ordered" data-items="0, 1, 2, 3, 4, 5, 6"></ul>
+    </div>
+
+
+
+    
 
 
 
