@@ -5,6 +5,7 @@
 #define SEG 5
 
 double benchmark_selection_sort(int vetor[], int tam);
+double benchmark_bubble_sort(int vetor[], int tam);
 
 int main()
 {
@@ -17,6 +18,9 @@ int main()
 
     printf("SELECTION SORT\n");
     benchmark_selection_sort(vetor, TAMANHO);
+
+    printf("BUBBLE SORT\n");
+    benchmark_bubble_sort(vetor, TAMANHO);
 
     //for(i=0; i<TAMANHO; i++)
         //printf("%d, ", i, vetor[i]);
@@ -33,6 +37,28 @@ double benchmark_selection_sort(int vetor[], int tam) {
     for(i = 0; i < SEG; i++) {
         inicio = clock();
         selection_sort(vetor, TAMANHO);
+        fim = clock();
+
+        duracao = ((double) (fim - inicio)) / CLOCKS_PER_SEC;
+        duracaoTotal += duracao;
+
+        printf("Iteracao #%d: %f\n", i+1, duracao);
+    }
+
+    media = duracaoTotal / SEG;
+    printf("Media: %f\n\n", media);
+
+    return media;
+}
+
+double benchmark_bubble_sort(int vetor[], int tam) {
+    int i;
+    double duracao, duracaoTotal = 0, media;
+    clock_t inicio, fim;
+
+    for(i = 0; i < SEG; i++) {
+        inicio = clock();
+        bubble_sort(vetor, TAMANHO);
         fim = clock();
 
         duracao = ((double) (fim - inicio)) / CLOCKS_PER_SEC;
