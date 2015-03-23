@@ -8,6 +8,8 @@ double benchmark_selection_sort(int vetor_o[], int tam);
 double benchmark_bubble_sort(int vetor_o[], int tam );
 double benchmark_quick_sort(int vetor_o[], int tam );
 double benchmark_gnome_sort(int vetor_o[], int tam );
+double benchmark_cocktail_sort(int vetor_o[], int tam );
+double benchmark_comb_sort(int vetor_o[], int tam );
 void copiar_vetor (int vetor_o[],int vetor_c[],int tam);
 void imprime (int vetor_c[], int tam);
 
@@ -33,6 +35,17 @@ int main()
 
     printf("QUICK SORT\n");
     benchmark_quick_sort(vetor_original, TAMANHO);
+
+    printf("GNOME SORT\n");
+    benchmark_gnome_sort(vetor_original, TAMANHO);
+
+
+     printf("COCKTAIL SORT\n");
+    benchmark_cocktail_sort(vetor_original, TAMANHO);
+
+    printf("COMB SORT\n");
+    benchmark_comb_sort(vetor_original, TAMANHO);
+
 
     //for(i=0; i<TAMANHO; i++)
         //printf("%d, ", vetor[i]);
@@ -60,7 +73,7 @@ double benchmark_selection_sort(int vetor_o[],  int tam){
 
         printf("Iteracao #%d: %f\n", i+1, duracao);
     }
-
+//imprime(vetor_c,tam);
 
     media = duracaoTotal / SEG;
     printf("Media: %f\n\n", media);
@@ -86,7 +99,7 @@ double benchmark_bubble_sort(int vetor_o[], int tam){
         printf("Iteracao #%d: %f\n", i+1, duracao);
     }
 
-
+//imprime(vetor_c,tam);
     media = duracaoTotal / SEG;
     printf("Media: %f\n\n", media);
 
@@ -110,14 +123,14 @@ double benchmark_quick_sort(int vetor_o[], int tam){
 
         printf("Iteracao #%d: %f\n", i+1, duracao);
     }
-
+//imprime(vetor_c,tam);
     media = duracaoTotal / SEG;
     printf("Media: %f\n\n", media);
 
     return media;
 }
 
-double benchmark_quick_sort(int vetor_o[], int tam){
+double benchmark_gnome_sort(int vetor_o[], int tam){
     int i,vetor_c[tam];
     double duracao, duracaoTotal = 0, media;
     clock_t inicio, fim;
@@ -126,7 +139,7 @@ double benchmark_quick_sort(int vetor_o[], int tam){
     for(i = 0; i < SEG; i++) {
         copiar_vetor(vetor_o,vetor_c, tam);
         inicio = clock();
-        gnome_sort(vetor_c,0, tam);
+        gnome_sort(vetor_c,tam);
         fim = clock();
 
         duracao = ((double) (fim - inicio)) / CLOCKS_PER_SEC;
@@ -134,12 +147,62 @@ double benchmark_quick_sort(int vetor_o[], int tam){
 
         printf("Iteracao #%d: %f\n", i+1, duracao);
     }
-
+//imprime(vetor_c,tam);
     media = duracaoTotal / SEG;
     printf("Media: %f\n\n", media);
 
     return media;
 }
+
+double benchmark_cocktail_sort(int vetor_o[], int tam){
+    int i,vetor_c[tam];
+    double duracao, duracaoTotal = 0, media;
+    clock_t inicio, fim;
+
+
+    for(i = 0; i < SEG; i++) {
+        copiar_vetor(vetor_o,vetor_c, tam);
+        inicio = clock();
+        cocktail_sort(vetor_c, tam);
+        fim = clock();
+
+        duracao = ((double) (fim - inicio)) / CLOCKS_PER_SEC;
+        duracaoTotal += duracao;
+
+        printf("Iteracao #%d: %f\n", i+1, duracao);
+    }
+//imprime(vetor_c,tam);
+    media = duracaoTotal / SEG;
+    printf("Media: %f\n\n", media);
+
+    return media;
+}
+
+
+double benchmark_comb_sort(int vetor_o[], int tam){
+    int i,vetor_c[tam];
+    double duracao, duracaoTotal = 0, media;
+    clock_t inicio, fim;
+
+
+    for(i = 0; i < SEG; i++) {
+        copiar_vetor(vetor_o,vetor_c, tam);
+        inicio = clock();
+        comb_sort(vetor_c, tam);
+        fim = clock();
+
+        duracao = ((double) (fim - inicio)) / CLOCKS_PER_SEC;
+        duracaoTotal += duracao;
+
+        printf("Iteracao #%d: %f\n", i+1, duracao);
+    }
+//imprime(vetor_c,tam);
+    media = duracaoTotal / SEG;
+    printf("Media: %f\n\n", media);
+
+    return media;
+}
+
 
 
 
