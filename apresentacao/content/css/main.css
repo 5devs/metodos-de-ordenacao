@@ -125,6 +125,11 @@ nav#step-nav {
   border-bottom-color: #999;
 }
 
+.step img {
+  max-width: 800px;
+  max-height: 800px;
+}
+
 .step.sort-title {
   min-width: 1000px;
   height: 700px;
