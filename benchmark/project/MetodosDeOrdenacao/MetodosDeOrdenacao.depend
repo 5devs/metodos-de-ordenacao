@@ -1,15 +1,15 @@
 # depslib dependency file v1.0
-1426951051 source:c:\git\5devs\metodos-de-ordenacao\benchmark\project\metodosdeordenacao\main.c
+1427073682 source:c:\git\5devs\metodos-de-ordenacao\benchmark\project\metodosdeordenacao\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 
-1426946315 source:c:\git\5devs\metodos-de-ordenacao\benchmark\project\metodosdeordenacao\selection_sort.c
+1427080000 source:c:\git\5devs\metodos-de-ordenacao\benchmark\project\metodosdeordenacao\selection_sort.c
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>
 
-1426946314 source:c:\git\5devs\metodos-de-ordenacao\benchmark\project\metodosdeordenacao\bubble_sort.c
+1427077278 source:c:\git\5devs\metodos-de-ordenacao\benchmark\project\metodosdeordenacao\bubble_sort.c
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>
@@ -19,7 +19,22 @@
 	<conio.h>
 	<stdlib.h>
 
-1426951088 source:c:\git\5devs\metodos-de-ordenacao\benchmark\project\metodosdeordenacao\quick_sort.c
+1427081130 source:c:\git\5devs\metodos-de-ordenacao\benchmark\project\metodosdeordenacao\quick_sort.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+
+1427079261 source:c:\git\5devs\metodos-de-ordenacao\benchmark\project\metodosdeordenacao\gnome_sort.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+
+1427078326 source:c:\git\5devs\metodos-de-ordenacao\benchmark\project\metodosdeordenacao\comb_sort.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+
+1427078540 source:c:\git\5devs\metodos-de-ordenacao\benchmark\project\metodosdeordenacao\cocktail_sort.c
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>
