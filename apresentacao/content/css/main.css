@@ -111,11 +111,6 @@ nav#step-nav {
   z-index: -1;
 }
 
-.step:not(#intro):not(.active) h2 {
-  position: relative;
-  bottom: 1em;
-}
-
 .step a {
   transition: border .1s linear;
 
@@ -132,7 +127,7 @@ nav#step-nav {
 
 .step.sort-title {
   min-width: 1000px;
-  height: 0;
+  height: 700px;
 }
 
   .step.sort-title h2 {
@@ -163,11 +158,10 @@ nav#step-nav {
   }
 
 .step.sort-title.active {
-  height: auto;
+  /*max-height: 1000px;*/
 }
 
   .step.sort-title.active h2 {
-    position: static;
     font-size: 3rem;
   }
 
@@ -175,10 +169,6 @@ nav#step-nav {
   .step.sort-title.active p {
     opacity: 1;
   }
-
-.step:not(.active) {
-  /*opacity: 0.4;*/
-}
 
 .step.array-overlay:not(.active) {
   opacity: 0;
@@ -212,7 +202,7 @@ nav#step-nav {
 
 .array {
   /* set counter to start *after* -1 */
-  counter-reset: li -1;
+  counter-reset: array-index -1;
 
   padding: 0;
   margin: 0;
@@ -228,7 +218,7 @@ nav#step-nav {
   border: 3px solid black;
   font-size: 2em;
   font-weight: bold;
-  counter-increment: li;
+  counter-increment: array-index;
   position: relative;
   max-width: 15%;
   text-align: center;
@@ -236,12 +226,8 @@ nav#step-nav {
   transition: background-color .3s linear, border-color .3s linear, color .3s linear;
 }
 
-.array.swap-done li {
-  transition: background-color 0 linear, border-color 0 linear, color 0 linear;
-}
-
 .array li::after {
-  content: counter(li);
+  content: counter(array-index);
   position: absolute;
   top: 100%;
   left: 50%;
@@ -251,6 +237,10 @@ nav#step-nav {
   font-family: 'Century Gothic';
   font-size: 0.5em;
   font-weight: lighter;
+}
+
+.array.swap-done li {
+  transition: background-color 0 linear, border-color 0 linear, color 0 linear;
 }
 
 .array li.pivot {

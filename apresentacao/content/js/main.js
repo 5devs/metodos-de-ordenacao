@@ -59,24 +59,25 @@
     // colocar itens acima dos outros enquanto se animam
     items1And2.css('z-index', 2);
 
-    // pixels necessarios para chegar ao meio dos itens a serem trocados
-    var halfWayWidth = (item1.outerWidth(true) + gap) / 2;
-    item1.animate({
-        top: item1.outerHeight(true) + animationMargin,
-        left: halfWayWidth
+    item1
+      .animate({
+        left: item1.outerWidth(true) + gap
+      }, { duration: defaultAnimationDelay * 2, queue: false })
+      .animate({
+        top: item1.outerHeight(true)
       }, defaultAnimationDelay)
       .animate({
-        left: halfWayWidth * 2,
         top: 0
       }, defaultAnimationDelay);
 
-    var halfWayWidth = (item2.outerWidth(true) + gap) / 2;
-    item2.animate({
-        bottom: item2.outerHeight(true) + animationMargin,
-        right: halfWayWidth
+    item2
+      .animate({
+        right: item2.outerWidth(true) + gap
+      }, { duration: defaultAnimationDelay * 2, queue: false })
+      .animate({
+        bottom: item2.outerHeight(true)
       }, defaultAnimationDelay)
       .animate({
-        right: halfWayWidth * 2,
         bottom: 0
       }, defaultAnimationDelay, function onAnimationComplete() {
         setTimeout(function(){
@@ -115,54 +116,55 @@
 
     var items = arrayEl.find('li');
     var itemIdx = items.index(item);
-    var itemsToMove = [],
-      gap = 0;
+    var itemsToMove = [];
+    var gap = 0;
 
     var moveDelta = position - itemIdx;
     // se moveDelta for positivo, o item vai mover pra direita, se não vai pra
-    // esq (se 0 ele deve ficar onde está)
+    // esquerda (se 0 ele deve ficar onde está)
     if (moveDelta == 0)
       return;
     else if (moveDelta > 0) {
       itemsToMove = items.slice(itemIdx + 1, position + 1);
-      gap = getItemDistanceWidth(arrayEl, itemIdx + 1, position + 1);
+      gap = -(getItemDistanceWidth(arrayEl, itemIdx + 1, position + 1) + item.outerWidth(true));
     } else {
-      gap = getItemDistanceWidth(arrayEl, position, itemIdx);
       itemsToMove = items.slice(position, itemIdx);
+      gap = getItemDistanceWidth(arrayEl, position, itemIdx) + item.outerWidth(true);
     }
 
     item.css('z-index', 1);
 
     itemsToMove.animate({
       left: moveDelta > 0 ? -item.outerWidth(true) : item.outerWidth(true)
-    }, defaultAnimationDelay * 2); // multiply by 2 because of the other element
+    }, defaultAnimationDelay * 2); // multiply by 2 because of the other element's animation
 
-    var halfWayWidth = (item.outerWidth(true) + gap) / 2;
-    item.animate({
-      top: item.outerHeight(true) + animationMargin,
-      right: moveDelta > 0 ? -halfWayWidth : halfWayWidth
-    }, defaultAnimationDelay)
-    .animate({
-      right: halfWayWidth * (moveDelta > 0 ? -2 : 2),
-      top: 0
-    }, defaultAnimationDelay, function onAnimationComplete() {
-      setTimeout(function(){
-        // reset positions
-        itemsToMove.css('left', 0);
-        item.css({
-          'z-index': 0,
-          right: 0
-        });
+    item
+      .animate({
+        right: gap
+      }, { duration: defaultAnimationDelay * 2, queue: false })
+      .animate({
+        top: item.outerHeight(true) + animationMargin
+      }, defaultAnimationDelay)
+      .animate({
+        top: 0
+      }, defaultAnimationDelay, function onAnimationComplete() {
+        setTimeout(function(){
+          // reset positions
+          itemsToMove.css('left', 0);
+          item.css({
+            'z-index': 0,
+            right: 0
+          });
 
-        // insert item at correct position
-        if (moveDelta > 0)
-          item.insertAfter(items.eq(position));
-        else
-          item.insertBefore(items.eq(position));
+          // insert item at correct position
+          if (moveDelta > 0)
+            item.insertAfter(items.eq(position));
+          else
+            item.insertBefore(items.eq(position));
 
-        arrayEl.addClass('move-done');
-      }, defaultAnimationDelay / 4);
-    });
+          arrayEl.addClass('move-done');
+        }, defaultAnimationDelay / 4);
+      });
   }
 
   function getItemDistanceWidth(arrayElement, fromIdx, toIdx) {
