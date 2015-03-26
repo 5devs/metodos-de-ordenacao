@@ -98,6 +98,10 @@ nav#step-nav {
     right: 0;
   }
 
+pre code {
+  font-family: Consolas, monospace;
+}
+
 .step {
   min-width: 700px;
   position:relative;
@@ -151,7 +155,9 @@ nav#step-nav {
   }
 
   .step.sort-title img,
-  .step.sort-title p {
+  .step.sort-title p,
+  .step.sort-title table,
+  .step.sort-code {
     transition: opacity .3s linear;
     opacity: 0;
   }
@@ -169,6 +175,19 @@ nav#step-nav {
     text-align: justify;
   }
 
+  .step.sort-title table {
+    font-size: .7em;
+    text-align: center;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+    .step.sort-title table th,
+    .step.sort-title table td {
+      padding: .1em .5em;
+      border: 3px groove #ddd;
+    }
+
 .step.sort-title.active {
   /*max-height: 1000px;*/
 }
@@ -178,9 +197,35 @@ nav#step-nav {
   }
 
   .step.sort-title.active img,
-  .step.sort-title.active p {
+  .step.sort-title.active p,
+  .step.sort-title.active table,
+  .step.sort-code.active {
     opacity: 1;
   }
+
+.step.sort-code {
+  min-width: 1000px;
+  text-align: center;
+}
+
+  .step.sort-code pre {
+    margin: 0;
+    display: inline-block;
+    width: auto;
+    max-width: 100%;
+  }
+
+    .step.sort-code pre code {
+      max-height: 500px;
+      padding: 0;
+
+      overflow-x: hidden;
+      overflow-wrap: break-word;
+      white-space: pre-wrap;
+
+      font-size: .6em;
+      text-align: left;
+    }
 
 .step.array-overlay:not(.active) {
   opacity: 0;
