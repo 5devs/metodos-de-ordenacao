@@ -6,8 +6,11 @@
 
   <!-- <link href='http://fonts.googleapis.com/css?family=Raleway:400,200,700' rel='stylesheet' type='text/css'> -->
   <link href='http://fonts.googleapis.com/css?family=Wire+One|Raleway:400,200,700' rel='stylesheet' type='text/css'>
-  
+
   <link rel="stylesheet" href="content/css/main.css">
+
+  <!-- CodeMirror -->
+  <link rel="stylesheet" href="content/js/highlight.js/styles/color-brewer.css">
 </head>
 <body>
 
@@ -60,7 +63,41 @@
         <p>Seleciona a primeira posição do vetor e compara o elemento com os demais, partindo da esquerda para a direita,
           trocando-os quando necessário. Ao término das comparações, seleciona a proxima posição e compara o elemento com
           os posteriores. Essa lógica é repetida até que a ultima posição esteja ordenada.</p>
+
+        <table>
+          <tr>
+            <th>Categoria</th>
+            <th>Complexidade</th>
+            <th>Performance</th>
+          </tr>
+          <tr>
+            <td>Seleção</td>
+            <td>Baixa</td>
+            <td>Baixa</td>
+          </tr>
+        </table>
       </div>
+    </div>
+
+    <div id="selection-sort-code" class="step sort-method sort-code" data-x="2000" data-y="0">
+      <pre><code class="c">
+int* selection_sort(int vetor[], int tamanho) {
+  int i, j, min, aux;
+  for (i = 0; i < (tamanho-1); i++) {
+    min = i;
+    for (j = (i+1); j < tamanho; j++) {
+      if(vetor[j] < vetor[min])
+        min = j;
+    }
+    if (i != min) {
+      aux = vetor[i];
+      vetor[i] = vetor[min];
+      vetor[min] = aux;
+    }
+  }
+  return vetor;
+}
+      </code></pre>
     </div>
 
     <div id="selection-sort-array-1" class="step sort-method array-overlay" data-x="2000" data-y="0">
@@ -217,7 +254,39 @@
         <p>Compara o elemento da primeira posição do vetor com o elemento da
           posição seguinte, trocando-os se necessário, e avançando uma posição,
           até o fim. Essa lógica é repetida até que não haja troca de posições.</p>
+
+        <table>
+          <tr>
+            <th>Categoria</th>
+            <th>Complexidade</th>
+            <th>Performance</th>
+          </tr>
+          <tr>
+            <td>Troca</td>
+            <td>Simples</td>
+            <td>Relativamente Baixa</td>
+          </tr>
+        </table>
       </div>
+    </div>
+
+    <div id="bubble-sort-code" class="step sort-method sort-code" data-x="2000" data-y="1000">
+      <pre><code class="c">
+int* bubble_sort(int vetor[], int tamanho) {
+  int i, j, aux = 0;
+  for(i = tamanho-1; i > 0; i--) {
+    for(j = 0; j < i; j++) {
+      if(vetor[j] > vetor[j+1]) {
+        int temp;
+        temp = vetor[j];
+        vetor[j] = vetor[j+1];
+        vetor[j+1] = temp;
+      }
+    }
+  }
+  return vetor;
+}
+      </code></pre>
     </div>
 
     <div id="bubble-sort-array-1" class="step sort-method array-overlay" data-x="2000" data-y="1000">
@@ -346,7 +415,49 @@
         <p>Utilizando um elemento como guia (denominado <strong>pivô</strong>), separamos os elementos
           em dois vetores, os menores e os maiores que o mesmo. Desses dois vetores criados, a lógica é aplicada repetidamente, até
             que os itens estejam ordenados.</p>
+
+        <table>
+          <tr>
+            <th>Categoria</th>
+            <th>Complexidade</th>
+            <th>Performance</th>
+          </tr>
+          <tr>
+            <td>Troca</td>
+            <td>Relativamente Complexo</td>
+            <td>Alta</td>
+          </tr>
+        </table>
       </div>
+    </div>
+
+    <div id="quicksort-code" class="step sort-method sort-code" data-x="2000" data-y="2000">
+      <pre><code class="c">
+int* quick_sort(int vetor[], int esq, int dir) {
+  int i, j, pivo, aux;
+  i = esq;
+  j = dir;
+  pivo = vetor[(i+j)/2];
+  do {
+    while(vetor[i] < pivo && i < dir)
+      i++;
+    while(vetor[j] > pivo && j > esq)
+      j--;
+    if(i <= j) {
+      aux = vetor[i];
+      vetor[i] = vetor[j];
+      vetor[j] = aux;
+      i++;
+      j--;
+    }
+  } while (i <= j);
+  if(esq < j)
+    quick_sort(vetor, esq, j);
+  if(dir > i)
+    quick_sort(vetor, i, dir);
+  return vetor;
+}
+      </code></pre>
     </div>
 
     <div id="quicksort-array-1" class="step sort-method array-overlay" data-x="2000" data-y="2000">
@@ -532,7 +643,49 @@
           algoritmo compara o elemento com os anteriores, da direita para a esquerda,
           até encontrar sua posição correta.</p>
         <p>Esse método evita que o algoritmo percorra elementos já ordenados.</p>
+
+        <table>
+          <tr>
+            <th>Categoria</th>
+            <th>Complexidade</th>
+            <th>Performance</th>
+          </tr>
+          <tr>
+            <td>Troca</td>
+            <td>Relativamente Simples</td>
+            <td>Relativamente Baixa</td>
+          </tr>
+        </table>
       </div>
+    </div>
+
+    <div id="gnome-sort-code" class="step sort-method sort-code" data-x="4000" data-y="0">
+      <pre><code class="c">
+int* gnome_sort(int vetor[], int tamanho) {
+  int next = 0, previous = 0;
+  int i = 0;
+  for(i = 0; i < tamanho; i++) {
+    if(vetor[i] > vetor[i+1]) {
+      previous = i;
+      next = i+1;
+      while(vetor[previous] > vetor[next]) {
+        swap(&vetor[previous], &vetor[next]);
+        if(previous > 0)
+          previous--;
+        if(next > 0)
+          next--;
+      }
+    }
+  }
+  return vetor;
+}
+
+void swap(int *A, int *B) {
+  int C = *A;
+  *A = *B;
+  *B = C;
+}
+      </code></pre>
     </div>
 
     <div id="gnome-sort-array-1" class="step sort-method array-overlay" data-x="4000" data-y="0">
@@ -646,7 +799,54 @@
           como <em>Bubble Sort Bidirecional</em>) é eliminar os <em>elementos tartaruga</em> mais rapidamente.
           O Cocktail Sort compara os elementos em pares, da esquerda para a direita, e, ao chegar no final do vetor, volta
           comparando os elementos da direita para a esquerda.</p>
+
+        <table>
+          <tr>
+            <th>Categoria</th>
+            <th>Complexidade</th>
+            <th>Performance</th>
+          </tr>
+          <tr>
+            <td>Troca</td>
+            <td>Relativamente Complexo</td>
+            <td>Relativamente Baixa</td>
+          </tr>
+        </table>
       </div>
+    </div>
+
+    <div id="cocktail-sort-code" class="step sort-method sort-code" data-x="4000" data-y="1000">
+      <pre><code class="c">
+int* cocktail_sort(int vetor[], int tamanho) {
+  int length, bottom, top, swapped, i, aux;
+  length = tamanho;
+  bottom = 0;
+  top = length-1;
+  swapped = 0;
+  while(swapped == 0 && bottom < top) {
+    swapped = 1;
+    for(i = bottom; i < top; i = i+1) {
+      if(vetor[i] > vetor[i+1]) {
+        aux = vetor[i];
+        vetor[i] = vetor[i+1];
+        vetor[i+1] = aux;
+        swapped = 0;
+      }
+    }
+    top = top-1;
+    for(i = top; i > bottom; i = i-1) {
+      if(vetor[i] < vetor[i-1]) {
+        aux = vetor[i];
+        vetor[i] = vetor[i-1];
+        vetor[i-1] = aux;
+        swapped = 0;
+      }
+    }
+    bottom = bottom+1;
+  }
+  return vetor;
+}
+      </code></pre>
     </div>
 
     <div id="cocktail-sort-array-1" class="step sort-method array-overlay" data-x="4000" data-y="1000">
@@ -782,7 +982,45 @@
         <p>Também visando diminuir os problemas dos <em>elementos tartaruga</em> no
           <a href="#bubble-sort">Bubble Sort</a>, o Comb Sort utiliza um <i>gap</i> maior para cada iteração,
           consequentemente  melhorando a performance.</p>
+
+        <table>
+          <tr>
+            <th>Categoria</th>
+            <th>Complexidade</th>
+            <th>Performance</th>
+          </tr>
+          <tr>
+            <td>Troca</td>
+            <td>Relativamente Simples</td>
+            <td>Alta</td>
+          </tr>
+        </table>
       </div>
+    </div>
+
+    <div id="comb-sort-code" class="step sort-method sort-code" data-x="4000" data-y="2000">
+      <pre><code class="c">
+int* comb_sort(int vetor[], int tamanho) {
+    float shrink_factor = 1.247330950103979;
+    int gap = tamanho, swapped = 1, swap, i;
+    while ((gap > 1) || swapped) {
+        if (gap > 1)
+           gap = gap/shrink_factor;
+        swapped = 0;
+        i = 0;
+        while ((gap+i) < tamanho) {
+            if (vetor[i]-vetor[i+gap] > 0) {
+                swap = vetor[i];
+                vetor[i] = vetor[i+gap];
+                vetor[i+gap] = swap;
+                swapped = 1;
+            }
+            ++i;
+        }
+    }
+    return vetor;
+}
+      </code></pre>
     </div>
 
     <div id="comb-sort-array-1" class="step sort-method array-overlay" data-x="4000" data-y="2000">
@@ -921,6 +1159,9 @@
     <script type="text/javascript" src="bower_components/impress.js/js/impress.js"></script>
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="content/js/main.js"></script>
+
+    <script src="content/js/highlight.js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 
     <!-- <img src="content/img/arrow.png" alt="Arrow"> -->
 
